@@ -42,5 +42,5 @@ end
 
 guards.map! {|g| g.nil?? {sleeptime:0} : g} 
 
-max = guards.max_by {|g| g[:sleeptime].to_i}
-puts guards.index(max) * max[:minutes].index(max[:minutes].max)
+max_guard = guards.max_by {|g| g[:sleeptime].to_i}
+puts guards.index(max_guard) * max_guard[:minutes].index(max_guard[:minutes].max)

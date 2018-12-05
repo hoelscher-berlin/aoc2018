@@ -42,6 +42,9 @@ end
 
 guards.map! {|g| g.nil?? {sleeptime:0, minutes: Array.new(60, 0)} : g} 
 
+max_guard = guards.max_by {|g| g[:sleeptime].to_i}
+puts guards.index(max_guard) * max_guard[:minutes].index(max_guard[:minutes].max)
+
 max = {:g => 0, :m => 0, :value => -1}
 
 guards.each_with_index do |g,index| 
@@ -52,4 +55,4 @@ guards.each_with_index do |g,index|
     end 
 end
 
-print max[:g]*max[:m]
+puts max[:g]*max[:m]

@@ -1,3 +1,5 @@
+### part 1 ###
+
 field = Array.new(1000) {Array.new(1000, '.')}
 cnt = 0
 
@@ -31,6 +33,10 @@ field.each do |lines|
   end
 end
 
+puts cnt
+
+### part 2 ###
+
 dirty = 0
 mindirty = 100000
 clean = 5000
@@ -60,6 +66,4 @@ File.open("inputs/03").each do |line|
   end
 end
 
-puts field.map { |x| x.join(' ') }
-puts cnt
-puts "number " + clean.to_s + " is clean"
+puts clean

@@ -15,8 +15,6 @@ File.open("inputs/05").each do |line|
   input = input_string.split('')
 end
 
-#puts input.join('')
-
 def react(inp)
   reaction = true
   while reaction do
@@ -25,7 +23,7 @@ def react(inp)
     for i in 1..inp.length-1 do
       break if i >= inp.length
 
-      if ((inp[i-1].is_up? and inp[i].is_low?) or (inp[i].is_up? and inp[i-1].is_low?)) and inp[i-1].downcase == inp[i].downcase
+      if inp[i-1]!=inp[i] and inp[i-1].downcase == inp[i].downcase
         reaction = true
         inp.delete_at(i)
         inp.delete_at(i-1)
@@ -36,11 +34,12 @@ def react(inp)
 end
 
 puts react(input)
+
 results = Array.new
 
 ("a".."z").each { |char|
   inp = input_string.delete(char).delete(char.upcase).split('')
-  results << react(inp)
+  puts results << react(inp)
 }
 
 puts results.min

@@ -85,9 +85,3 @@ end
 # Find maximum
 
 puts count.max_by {|key,value| value}
-
-# Print field
-#for i in 0..ysize-1
-#  puts field[i].join(' ')
-#end
-

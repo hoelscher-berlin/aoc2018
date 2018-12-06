@@ -44,8 +44,3 @@ field.each do |y|
 end
 
 puts wholefield.count("#")
-
-# Print field
-for i in 0..ysize-1
-  puts field[i].join(' ')
-end

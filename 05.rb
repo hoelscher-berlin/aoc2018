@@ -1,15 +1,6 @@
 input_string = ""
 input = Array.new
 
-class String
-  def is_up?
-    self == self.upcase
-  end
-  def is_low?
-    self == self.downcase
-  end
-end
-
 File.open("inputs/05").each do |line|
   input_string = line.delete("\n")
   input = input_string.split('')

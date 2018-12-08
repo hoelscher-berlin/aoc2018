@@ -15,7 +15,7 @@ File.open("inputs/07").each do |line|
   predecessors[line.split('')[36]] << line.split('')[5]
 end
 
-def workers_available
+def workers_available?
   @workers.select {|w| w == 0}.count > 0
 end
 
@@ -29,7 +29,7 @@ def assign_worker(char)
   end
 end
 
-def all_workers_done
+def all_workers_done?
   @workers.all? {|w| w ==0}
 end
 
@@ -45,7 +45,7 @@ def time_passes_by
   end
 end
 
-while predecessors.count > 0 or !all_workers_done do
+while predecessors.count > 0 or !all_workers_done? do
   time_passes_by
 
   predecessors.each do |d,preds|
@@ -53,7 +53,7 @@ while predecessors.count > 0 or !all_workers_done do
   end
 
   predecessors.each do |c,preds|
-    if preds.count == 0 and workers_available
+    if preds.count == 0 and workers_available?
       assign_worker(c)
       predecessors.delete(c)
     end

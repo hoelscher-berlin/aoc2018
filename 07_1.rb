@@ -9,8 +9,6 @@ File.open("inputs/07").each do |line|
   predecessors[line.split('')[36]] << line.split('')[5]
 end
 
-print predecessors
-
 while predecessors.count > 0 do
   # Remove immediately doable tasks
   predecessors.each do |c,preds|
